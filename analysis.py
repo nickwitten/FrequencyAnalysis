@@ -45,7 +45,7 @@ def plot_piano(y, sample_rate, ax):
 
 
 # Get impulse wav files
-impulse_dir = 'C:\\Users\\nwitt\\workspace\\FerstAnalysis\\impulses_cut\\'
+impulse_dir = '.\\impulses_cut\\'
 fns = os.listdir(impulse_dir)
 # Setup plotting figures
 ncols = 2
