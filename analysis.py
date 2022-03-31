@@ -129,7 +129,8 @@ impulse_dir = '.\\impulses\\'
 fns = os.listdir(impulse_dir)
 # Setup plotting figures
 ncols = 2
-nrows = len(fns) // ncols + (len(fns) % ncols)
+nrows = len(fns) // ncols
+nrows = nrows + 1 if len(fns) % ncols else nrows
 fig1 = plt.figure(tight_layout=True)
 fig2 = plt.figure(tight_layout=True)
 fig3 = plt.figure(tight_layout=True)
