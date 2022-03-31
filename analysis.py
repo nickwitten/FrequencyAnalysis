@@ -44,10 +44,15 @@ def plot_freq(y, sample_rate, ax, log=False):
     yf = np.fft.rfft(y)
     xf = np.fft.rfftfreq(y.size, 1 / sample_rate)
     range_mask = (xf >= note_freqs['A0']) & (xf <= note_freqs['C8'])
+    # range_mask = np.ones(yf.size).astype(bool)
     if log:
         yf = 20 * np.log10(np.abs(yf))
+        ax.set_ylabel("Intensity (dB)")
+    else:
+        ax.set_ylabel("Intensity")
     ax.plot(xf[range_mask], np.abs(yf[range_mask]))
-    ax.set_title(ax.title.get_text() + f'STD: {round(np.std(np.abs(yf)), 2)}')
+    ax.set_xlabel("Frequency (Hz)")
+    ax.set_title(ax.title.get_text() + f' STD: {round(np.std(np.abs(yf)), 2)} dB')
 
 freqs = np.array(list(note_freqs.values()))
 freq_diffs = np.diff(freqs)
